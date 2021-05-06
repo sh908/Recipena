@@ -1,0 +1,53 @@
+<div class = "container">
+ <div class = "row">
+  <div class = "col-md-8 offset-md-1">
+
+   <h2>新規登録</h2>
+
+  <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+     <div class="field">
+       <%= f.label :姓 %>
+       <%= f.text_field :last_name, autofocus: true %>
+
+       <%= f.label :名 %>
+       <%= f.text_field :first_name, autofocus: true %>
+     </div>
+
+     <div class="field">
+       <%= f.label :カナ %>
+       <%= f.text_field :last_name_kana, autofocus: true %>
+
+       <%= f.label :カナ %>
+       <%= f.text_field :first_name_kana, autofocus: true %>
+     </div>
+
+     <div class="field">
+       <%= f.label :メールアドレス %><br />
+       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+     </div>
+
+     <div class="field">
+       <%= f.label :パスワード %>
+       <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+       <% end %><br />
+       <%= f.password_field :password, autocomplete: "new-password" %>
+     </div>
+
+     <div class="field">
+       <%= f.label :パスワード確認 %><br />
+       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+     </div>
+
+     <div class="actions">
+       <%= f.submit "新規登録", class: "btn btn-success" %>
+     </div>
+  <% end %>
+
+   <h5>既に登録済みの方</h5>
+   <h7><%= link_to "こちら", new_user_session_path %>からログインしてください</h7>
+  </div>
+ </div>
+</div>
