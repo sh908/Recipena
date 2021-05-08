@@ -1,0 +1,29 @@
+<div class = "container">
+ <div class = "row">
+  <div class = "col-md-8 offset-md-1">
+
+   <h2>プロフィール編集</h2>
+    <%= form_with model:@user,  local: true do |f|%>
+  
+    <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no-image.jpeg"%>
+       <label for="inputImage">ProfileImage</label>
+      <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+  
+      <div class="field">
+       <%= f.label :名前（姓名） %>
+       <%= f.text_field :last_name, autofocus: true %>
+       <%= f.text_field :first_name, autofocus: true %>
+      </div>
+  
+      <div class="field">
+       <%= f.label :フリガナ（姓名） %>
+       <%= f.text_field :last_name_kana, autofocus: true %>
+       <%= f.text_field :first_name_kana, autofocus: true %>
+      </div>
+  
+  
+      <%= f.submit "変更を保存" %>
+    <% end %>
+  </div>
+ </div>
+</div>
