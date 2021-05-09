@@ -1,19 +1,2 @@
-<div class = "container">
- <div class = "row">
-  <div class = "col-md-8 offset-md-1">
-     <% @posts.each do |post| %>
-       <div>
-        <%= link_to post_path(post.id)do %>
-         <%= attachment_image_tag post, :image %>
-        <% end %>
-         <p>投稿ユーザー画像<%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no-image.jpeg" %></p>
-         <p>ユーザーネーム<%= post.user.last_name %><%= post.user.first_name %></p>
-         <p>料理名<%= post.cook_name %></p>
-         <p>レシピ（詳細）<%= post.description %></p>
-         <p><%= link_to "#{post.post_comments.count}コメント", post_path(post.id) %></p>
-       </div>
-     <% end %>
-     <%= paginate @posts %>
-    </div>
-  </div>
-</div>
+<!-- render [部分テンプレートファイルの指定], [ローカル変数]:[渡す値] -->
+<%= render "posts/list", posts: @posts %>
