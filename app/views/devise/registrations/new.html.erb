@@ -1,25 +1,26 @@
 <div class = "container">
- <div class = "row">
-  <div class = "col-md-8 offset-md-1">
-
+  <div class = "row no-gutters">
+   <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
    <h2>新規登録</h2>
-
+    <div class = "form-body p-4">
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
      <div class="field">
-       <%= f.label :姓 %>
+       <%= f.label :名前（姓）%>
        <%= f.text_field :last_name, autofocus: true %>
-
-       <%= f.label :名 %>
+     </div>
+     <div class = "field">
+       <%= f.label :名前（名） %>
        <%= f.text_field :first_name, autofocus: true %>
      </div>
 
      <div class="field">
-       <%= f.label :カナ %>
+       <%= f.label :カナ（セイ） %>
        <%= f.text_field :last_name_kana, autofocus: true %>
-
-       <%= f.label :カナ %>
+     </div>
+     <div class="field">
+       <%= f.label :カナ（メイ） %>
        <%= f.text_field :first_name_kana, autofocus: true %>
      </div>
 
@@ -50,4 +51,5 @@
    <h7><%= link_to "こちら", new_user_session_path %>からログインしてください</h7>
   </div>
  </div>
+</div>
 </div>

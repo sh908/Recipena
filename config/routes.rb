@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
   get 'users/show'
   devise_for :users
-  root to: "homes#top"
-  get "homes/about" =>"homes#about"
+  root to: 'homes#top'
+  get 'homes/about' => 'homes#about'
   # root 'posts#index'
 
-   
-  resources :posts, only:[:new, :create, :index, :show, :destroy] do
-  resource :favorites, only:[:create, :destroy]
-  resources :post_comments, only:[:create, :destroy]
- end
- resources :users, only:[:index, :show, :edit, :update]do
- resource :relationships, only: [:create, :destroy]
- get "followings" => "relationships#followings", as: "followings"
- get "followers" => "relationships#followers", as: "followers"
- end
+  resources :posts, only: %i[new create index show destroy] do
+    resource :favorites, only: %i[create destroy]
+    resources :post_comments, only: %i[create destroy]
+  end
+  patch '/uers/hide' => 'users#hide', as: 'users_hide'
+  get '/users/withdraw' => 'users#withdraw', as: 'users_withdraw'
+  resources :users, only: %i[index show edit update] do
+    resource :relationships, only: %i[create destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+  end
 end
-

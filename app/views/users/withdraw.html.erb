@@ -1,0 +1,19 @@
+<div class = "container">
+  <div class = "row no-gutters">
+   <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto rounded px-0 my-5">
+    <h2>退会確認画面</h2>
+     <div class = "form-body p-4">
+       <p>退会してもよろしいですか？</p>
+       <p>
+         <!--ユーザーがログインしていると退会ボタンを表示する-->
+         <% if user_signed_in? %>
+          <%= link_to "退会する", users_hide_path, method: :patch, class: "btn btn-outline-danger" %>
+        <% end %>
+       </p>
+       <p>
+         <%= link_to "退会しない", posts_path, class: "btn btn-primary" %>
+       </p>
+     </div>
+   </div>
+  </div>
+</div>
