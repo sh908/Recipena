@@ -16,6 +16,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
+            <%#= render "layouts/search" %>
                 <li class = "nav-item">
                  <i class="far fa-smile-beam"></i>
                   <%= link_to "投稿フォーム", new_post_path %>

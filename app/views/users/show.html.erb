@@ -5,7 +5,7 @@
      <div class = "form-body p-4">
       
 
-     <h3>名前<%= @user.last_name %><%= @user.first_name %></h3>
+     <h3>名前<%= @user.name %> </h3>
 
       <!--attachment_image_tag 保存先インスタンス名, :保存先カラム名, :サイズ（横幅,高さ）, 画像拡張子, 代替画像 -->
       <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no-image.jpeg" %>
@@ -15,7 +15,8 @@
        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary btn-block  fas fa-user-cog"  %></p>
       <% end %>
       <%= render "users/info", user: @user %> 
-      <%= link_to "退会", users_withdraw_path %>
+      
+      <p>退会の方は<%= link_to "こちら", users_withdraw_path %></p>
     </div>
    </div>
   </div>

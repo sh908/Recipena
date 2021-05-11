@@ -16,12 +16,15 @@
               <i class="far fa-flag"></i>
               <span><%= post.cook_name %></span>
              </strong>
+             <div id="post_<%= post.id %>">
+               <%= render "favorites/favorite-btn", post: post %>
+             </div>
             <% end %>
            </p>
            <p class="card-text">説明：<%= post.description %></p>
             <span>
              <i class = "fas fa-user"></i>
-               名前<%= post.user.last_name %><%= post.user.first_name %>
+               名前<%= post.user.name %>
             </span>
 
             <span>

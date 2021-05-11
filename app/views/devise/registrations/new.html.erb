@@ -7,21 +7,13 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
      <div class="field">
-       <%= f.label :名前（姓）%>
-       <%= f.text_field :last_name, autofocus: true %>
+       <%= f.label :名前%>
+       <%= f.text_field :name, autofocus: true %>
      </div>
-     <div class = "field">
-       <%= f.label :名前（名） %>
-       <%= f.text_field :first_name, autofocus: true %>
-     </div>
-
+     
      <div class="field">
-       <%= f.label :カナ（セイ） %>
-       <%= f.text_field :last_name_kana, autofocus: true %>
-     </div>
-     <div class="field">
-       <%= f.label :カナ（メイ） %>
-       <%= f.text_field :first_name_kana, autofocus: true %>
+       <%= f.label :カナ %>
+       <%= f.text_field :name_kana, autofocus: true %>
      </div>
 
      <div class="field">

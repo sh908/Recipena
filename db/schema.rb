@@ -10,64 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_508_081_117) do
-  create_table 'favorites', force: :cascade do |t|
-    t.integer 'user_id'
-    t.integer 'post_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+ActiveRecord::Schema.define(version: 2021_05_08_081117) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'notifications', force: :cascade do |t|
-    t.integer 'post_id'
-    t.integer 'visitor_id'
-    t.integer 'visited_id'
-    t.integer 'comment_id'
-    t.string 'action'
-    t.boolean 'checked'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "notifications", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "visitor_id"
+    t.integer "visited_id"
+    t.integer "comment_id"
+    t.string "action"
+    t.boolean "checked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'post_comments', force: :cascade do |t|
-    t.integer 'user_id'
-    t.integer 'post_id'
-    t.text 'comment'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "post_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'posts', force: :cascade do |t|
-    t.string 'cook_name'
-    t.text 'description'
-    t.string 'image_id'
-    t.integer 'user_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "posts", force: :cascade do |t|
+    t.string "cook_name"
+    t.text "description"
+    t.string "image_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'relationships', force: :cascade do |t|
-    t.integer 'follower_id'
-    t.integer 'followed_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'last_name'
-    t.string 'first_name'
-    t.string 'last_name_kana'
-    t.string 'first_name_kana'
-    t.boolean 'is_deleted', default: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'profile_image_id'
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "name"
+    t.string "name_kana"
+    t.boolean "is_deleted", default: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "profile_image_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
 end
