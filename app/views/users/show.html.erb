@@ -1,21 +1,21 @@
 <div class = "container">
   <div class = "row no-gutters">
    <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto rounded px-0 my-5">
-    <h5>プロフィール</h5>
+    <h3 class = "fas fa-address-card">プロフィール</h3>
      <div class = "form-body p-4">
       
 
      <h3>名前<%= @user.name %> </h3>
 
       <!--attachment_image_tag 保存先インスタンス名, :保存先カラム名, :サイズ（横幅,高さ）, 画像拡張子, 代替画像 -->
-      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no-image.jpeg" %>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no-image.jpeg", class:"mt-3 rounded-circle" %>
 
       <!--自分（ログインしているユーザ）のマイページが表示されたときのみ、編集ページへのリンクが表示される-->
       <% if @user.id == current_user.id %>
        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary btn-block  fas fa-user-cog"  %></p>
       <% end %>
       <%= render "users/info", user: @user %> 
-      
+      <br/>
       <p>退会の方は<%= link_to "こちら", users_withdraw_path %></p>
     </div>
    </div>

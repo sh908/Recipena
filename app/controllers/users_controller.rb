@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.page(params[:page]).reverse_order
+    @users = User.page(params[:page]).reverse_order
   end
 
   def edit

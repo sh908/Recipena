@@ -13,61 +13,72 @@
 <header class="bg-dark text-white pt-3 pb-3">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %>
-            <%#= render "layouts/search" %>
-                <li class = "nav-item">
-                 <i class="far fa-smile-beam"></i>
-                  <%= link_to "投稿フォーム", new_post_path %>
-                </li>
-
-                <li class = "nav-item">
-                 <i class="fas fa-utensils"></i>
-                  <%= link_to "投稿一覧", posts_path %>
-                </li>
-
-                <li class = "nav-item">
-                 <i class="fas fa-users"></i>
-                  <%= link_to "ユーザー一覧", users_path %>
-                </li>
-
-                <li class = "nav-item">
-                 <i class="far fa-user"></i>
-                 <%= link_to "マイページ", user_path(current_user.id) %>
-                </li>
-
-                <li class = "nav-item">
-                 <i class="fas fa-sign-out-alt"></i>
-                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                </li>
-
-            <% else %>
-                <li class = "nav-item">
-                 <i class="fas fa-user-plus"></i>
-                 <%= link_to "新規登録", new_user_registration_path %>
-                </li>
-
-                <li class = "nav-item">
-                 <i class="fas fa-sign-in-alt"></i>
-                 <%= link_to "ログイン", new_user_session_path %>
-                </li>
-
-                <li class = "nav-item">
-                  <i class="fas fa-link"></i>
-                 <%= link_to "アバウト", homes_about_path %>
-                </li>
-            <% end %>
-           </ul>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+       </button>
+        <div class="d-flex align-items-center">
+          <a class="nav-bland" href="/"><span>Recipena</span></a>
         </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <% if user_signed_in? %>
+                    <li class = "nav-item">
+                     <i class="far fa-smile-beam">
+                      <%= link_to "投稿フォーム", new_post_path %>
+                      </i>
+                    </li>
+
+                    <li class = "nav-item">
+                     <i class="fas fa-utensils">
+                      <%= link_to "投稿一覧", posts_path %>
+                      </i>
+                    </li>
+
+                    <li class = "nav-item">
+                     <i class="fas fa-users">
+                      <%= link_to "ユーザー一覧", users_path %>
+                      </i>
+                    </li>
+
+                    <li class = "nav-item">
+                     <i class="far fa-user">
+                      <%= link_to "マイページ", user_path(current_user.id) %>
+                     </i>
+                    </li>
+
+                    <li class = "nav-item">
+                     <i class="fas fa-sign-out-alt">
+                      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                     </i>
+                    </li>
+                <% else %>
+                    <li class = "nav-item">
+                        <i class="fas fa-user-plus">
+                          <%= link_to "新規登録", new_user_registration_path %>
+                        </i>
+                    </li>
+
+                    <li class = "nav-item">
+                        <i class="fas fa-sign-in-alt">
+                            <%= link_to "ログイン", new_user_session_path %>
+                        </i>
+                    </li>
+
+                    <li class = "nav-item">
+                        <i class="fas fa-link">
+                            <%= link_to "アバウト", homes_about_path %>
+                        </i>
+                    </li>
+                <% end %>
+            </ul>
+         </div>
     </div>
  </nav>
 </header>
-    <main class="mb-auto">
-      <%= yield %>
-    </main>
-      </ul>
-    </footer>
-  </body>
+  <main class="mb-auto">
+    <%= yield %>
+  </main>
+ </body>
 </html>
+
 
