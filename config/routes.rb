@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get 'users/show'
   devise_for :users
   root to: 'homes#top'
-  get 'homes/about' => 'homes#about'
  get '/search', to: 'search#search'
  
   resources :posts, only: %i[new create index show destroy] do
