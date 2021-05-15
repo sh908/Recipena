@@ -3,10 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .main-visual {
-  width: 100%; 
+  width: 100%;
   height: 1000px;
   text-align: center;
-  background: url(t.jpg) no-repeat center center;
+  background-image: image-url('t.jpg');
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
 }
 
@@ -25,8 +25,8 @@
 @media screen and (max-width:425px) {
   .main-visual{
    text-align: center;
-  background: url(r.jpg) no-repeat center center;
-  background-size: cover;  
+  background-image: image-url("r.jpg") ;
+  background-size: cover;
   }
   .main-visual-text {
   color: #fff;
