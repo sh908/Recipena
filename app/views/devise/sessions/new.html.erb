@@ -1,8 +1,9 @@
 <div class = "container">
   <div class = "row no-gutters">
    <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-    <h2>ログイン</h2>
      <div class = "form-body p-4">
+      <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto rounded px-0 my-5">
+       <h3>ログイン</h3>
     <p>
       <h5>会員の方はこちらから</h5>
     </p>
@@ -23,7 +24,8 @@
           <%= f.label :remember_me %>
         </div>
       <% end %>
-
+      
+      <br/>
       <div class="actions">
         <%= f.submit "ログイン", class: "btn btn-primary" %>
       </div>
@@ -32,6 +34,7 @@
       <br/>
       <h5>会員登録がお済みでない方</h5>
       <h7><%= link_to "こちら", new_user_registration_path %>から新規登録を行ってください</h7>
+     </div>
     </div>
    </div>
   </div>
