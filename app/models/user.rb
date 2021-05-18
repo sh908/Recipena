@@ -38,7 +38,7 @@ class User < ApplicationRecord
   # ログインする時に退会済み(is_deleted==true)のユーザーを弾くためのメソッド
   # userのis_deletedがfalseならtrueを返す
   def active_for_authentication?
-    super && (is_deleted == false)
+    super && (self.is_deleted == false)
   end
   
   def self.search_for(content, method)
