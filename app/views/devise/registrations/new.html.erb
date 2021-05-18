@@ -2,7 +2,12 @@
   <div class = "row no-gutters">
    <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
    
-    
+    <% if @user.errors.any? %>
+     <%= @user.errors.count %>件のエラーが発生しました
+      <% @user.errors.full_messages.each do |message| %>
+       <%= message %>
+      <% end %>
+    <% end %>
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
      <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto rounded px-0 my-5">

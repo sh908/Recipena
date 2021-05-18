@@ -17,6 +17,9 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   # 与フォロー関係を通じて参照→自分がフォローしている人
   has_many :followings, through: :relationships, source: :followed
+  
+  validates :name, presence: true
+  validates :name_kana, format: { with:/\A[\p{katakana}]+\z/}
 
   def follow(user_id)
     # createメソッドはnewとsaveを合わせた挙動
