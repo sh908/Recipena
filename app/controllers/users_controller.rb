@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def hide
-    @user = User.find(params[:id])
+    @user = current_user
     @user.update(is_deleted: true)
     reset_session
     redirect_to root_path
