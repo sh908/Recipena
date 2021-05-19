@@ -1,54 +1,52 @@
 <div class = "container">
   <div class = "row no-gutters">
-   <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-   
-    <% if @user.errors.any? %>
-     <%= @user.errors.count %>件のエラーが発生しました
-      <% @user.errors.full_messages.each do |message| %>
-       <%= message %>
+    <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <% if @user.errors.any? %>
+        <%= @user.errors.count %>件のエラーが発生しました
+        <% @user.errors.full_messages.each do |message| %>
+          <%= message %>
+        <% end %>
       <% end %>
-    <% end %>
-  <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-     <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto rounded px-0 my-5">
-      <h3>新規登録</h3>
-     <div class="field">
-       <%= f.label :名前%>
-       <%= f.text_field :name, autofocus: true %>
-     
-     </div>
-     <div class="field">
-       <%= f.label :カナ %>
-       <%= f.text_field :name_kana, autofocus: true %>
-     </div>
+      <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto rounded px-0 my-5">
+        <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+              <h3>新規登録</h3>
+            <div class="field">
+              <%= f.label :名前%>
+              <%= f.text_field :name, autofocus: true %>
+            </div>
 
-     <div class="field">
-       <%= f.label :メールアドレス %><br />
-       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-     </div>
+            <div class="field">
+              <%= f.label :カナ %>
+              <%= f.text_field :name_kana, autofocus: true %>
+            </div>
 
-     <div class="field">
-       <%= f.label :パスワード %>
-       <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-       <% end %><br />
-       <%= f.password_field :password, autocomplete: "new-password" %>
-     </div>
+            <div class="field">
+              <%= f.label :メールアドレス %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
 
-     <div class="field">
-       <%= f.label :パスワード確認 %><br />
-       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-     </div>
-     
-     <br/>
-     <div class="actions">
-       <%= f.submit "新規登録", class: "btn btn-success" %>
-     </div>
-  <% end %>
-    <br/>
-   <h5>既に登録済みの方</h5>
-   <h7><%= link_to "こちら", new_user_session_path %>からログインしてください</h7>
-   </div>
+            <div class="field">
+              <%= f.label :パスワード %>
+               <% if @minimum_password_length %>
+                 <em>(<%= @minimum_password_length %> characters minimum)</em>
+               <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :パスワード確認 %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+
+            <br/>
+            <div class="actions">
+              <%= f.submit "新規登録", class: "btn btn-success" %>
+            </div>
+        <% end %>
+          <br/><h5>既に登録済みの方</h5>
+        <h7><%= link_to "こちら", new_user_session_path %>からログインしてください</h7>
+      </div>
+    </div>
   </div>
- </div>
 </div>

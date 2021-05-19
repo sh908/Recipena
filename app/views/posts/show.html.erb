@@ -1,43 +1,46 @@
-<div class = "container">
- <div class="post-detail py-5 bg-light">
-  <div class="card w-75 mx-auto mt-4 shadow-lg">
-    <%= attachment_image_tag @post, :image, class:"card-img-top"; %>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-2">
-          <%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, fallback: "no-image.jpeg", class:"mt-3 rounded-circle"; %>
-        </div>
-        <div class="col-10">
-          <p class="card-title">
-            <%= link_to(post_path(@post.id), class:"text-dark") do %>
-              <strong><i class="far fa-flag"></i><span> <%= @post.cook_name %></span></strong>
-            <% end %>
-          </p>
-          <p class="card-title">説明：<%= @post.description %></p>
-          <span><i class="fas fa-user"></i> 名前 <%= @post.user.name %></span>
-          <span><i class="far fa-calendar-alt"></i> <%= @post.created_at.strftime('%Y/%m/%d') %></span>
-          <span><i class="fa fa-comment"></i> <%= link_to "#{@post.post_comments.count}", post_path(@post.id), class:"text-dark" %></span>
-          <!--もし、投稿者 == 現在ログインしているユーザ だったら-->
-          <% if @post.user == current_user %>
-           <%= link_to "削除", post_path(@post), method: :delete %>
-          <% end %>
+  <div class = "container">
+    <div class="post-detail py-5 bg-light">
+      <div class="card w-75 mx-auto mt-4 shadow-lg">
+        <%= attachment_image_tag @post, :image, class:"card-img-top"; %>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-2">
+              <%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, fallback: "no-image.jpeg", class:"mt-3 rounded-circle"; %>
+            </div>
+            <div class="col-10">
+              <p class="card-title">
+                <%= link_to(post_path(@post.id), class:"text-dark") do %>
+                  <strong><i class="far fa-flag"></i><span> <%= @post.cook_name %></span></strong>
+                <% end %>
+              </p>
 
-          <!--投稿画像に付けられた「いいね」に、自分（ログインしているユーザ）が含まれているかを
-          favorited_by?メソッドで判定していてPostモデルで実装しているメソッド-->
-          <div id="post_<%= @post.id %>">
-         <%= render "favorites/favorite-btn", post: @post %>
-         </div>
+              <span><i class="fas fa-user"></i> 名前 <%= @post.user.name %></span>
+              <span><i class="far fa-calendar-alt"></i> <%= @post.created_at.strftime('%Y/%m/%d') %></span>
+              <span><i class="fa fa-comment"></i> <%= link_to "#{@post.post_comments.count}", post_path(@post.id), class:"text-dark" %></span>
+              <!--もし、投稿者 == 現在ログインしているユーザ だったら-->
+              <% if @post.user == current_user %>
+                <%= link_to "投稿削除", post_path(@post), method: :delete, class: "btn btn-outline-danger" %>
+              <% end %>
 
-        <div class = "comments">
-        <%= render 'post_comments/index', post: @post %>
-        </div>
+              <!--投稿画像に付けられた「いいね」に、自分（ログインしているユーザ）が含まれているかを
+              favorited_by?メソッドで判定していてPostモデルで実装しているメソッド-->
+              <div id="post_<%= @post.id %>">
+                <%= render "favorites/favorite-btn", post: @post %>
+              </div>
 
-        <div class = "new-comment card-text">
-          <%= form_with model:[@post, @post_comment], local: false do |f| %>
-            <%= f.text_area :comment, rows:'5',class: "form-control", placeholder: "コメントをここに" %>
-            <%= f.submit "送信", class:"btn btn-info mt2 float-right" %>
-          <% end %>
+              <div class = "comments">
+                <%= render 'post_comments/index', post: @post %>
+              </div>
+
+              <div class = "new-comment card-text">
+                <%= form_with model:[@post, @post_comment], local: false do |f| %>
+                  <%= f.text_area :comment, rows:'5',class: "form-control", placeholder: "コメントをここに" %>
+                  <%= f.submit "送信", class:"btn btn-info mt2 float-right" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
   </div>
-</div>

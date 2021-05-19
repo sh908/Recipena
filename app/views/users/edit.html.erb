@@ -1,27 +1,26 @@
- <div class = "container">
-  <div class = "row no-gutters">
-   <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-    <h5 class = text-dark bg-light p-4 mb-0>プロフィール編集</h5>
-     <div class = "form-body p-4">
-    <%= form_with model:@user,  local: true do |f|%>
-  
-    <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no-image.jpeg"%>
-       <label for="inputImage">ProfileImage</label>
-      <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-  
-      <div class="field">
-       <%= f.label :名前 %>
-       <%= f.text_field :name, class:"form-control", autofocus: true %>
+  <div class = "container">
+    <div class = "row no-gutters">
+      <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+       <h5 class = text-dark bg-light p-4 mb-0>プロフィール編集</h5>
+        <div class = "form-body p-4">
+          <%= form_with model:@user,  local: true do |f|%>
+
+            <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no-image.jpeg"%>
+            <label for="inputImage">ProfileImage</label>
+            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+
+            <div class="field">
+              <%= f.label :名前 %>
+              <%= f.text_field :name, class:"form-control", autofocus: true %>
+            </div>
+
+            <div class="field">
+              <%= f.label :カナ %>
+              <%= f.text_field :name_kana, class:"form-control", autofocus: true %>
+            </div>
+            <%= f.submit "変更を保存", class:"btn btn-success" %>
+          <% end %>
+        </div>
       </div>
-  
-      <div class="field">
-       <%= f.label :カナ %>
-       <%= f.text_field :name_kana, class:"form-control", autofocus: true %>
-      </div>
-  
-  
-      <%= f.submit "変更を保存", class:"btn btn-success" %>
-    <% end %>
+    </div>
   </div>
- </div>
-</div>

@@ -4,19 +4,30 @@ class UsersController < ApplicationController
     @posts = @user.posts.page(params[:page]).reverse_order
   end
 
-  def hide
-    @user = current_user
-    @user.update!(is_deleted: true)
-    reset_session
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy!
     redirect_to root_path
   end
+
+  # def hide
+  #   @user = current_user
+  #   User.trasanction do
+  #     @user.update!(is_deleted: true)
+  #     @user.posts.delete_all
+  #     # if you want to delete something, you should write it here
+  #     # @user.likes.delete_all
+  #     reset_session
+  #   end
+  #   redirect_to root_path
+  # end
 
   def withdraw
     @user = current_user
   end
 
   def index
-    @users = User.page(params[:page]).reverse_order
+    @users = User.where(is_deleted: false).page(params[:page]).reverse_order
   end
 
   def edit
