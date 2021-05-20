@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     resource :favorites, only: %i[create destroy]
     resources :post_comments, only: %i[create destroy]
   end
-  patch '/uers/hide' => 'users#hide', as: 'users_hide'
   get '/users/withdraw' => 'users#withdraw', as: 'users_withdraw'
   resources :users, only: %i[index show edit update destroy] do
     resource :relationships, only: %i[create destroy]

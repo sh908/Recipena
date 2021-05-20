@@ -10,18 +10,6 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  # def hide
-  #   @user = current_user
-  #   User.trasanction do
-  #     @user.update!(is_deleted: true)
-  #     @user.posts.delete_all
-  #     # if you want to delete something, you should write it here
-  #     # @user.likes.delete_all
-  #     reset_session
-  #   end
-  #   redirect_to root_path
-  # end
-
   def withdraw
     @user = current_user
   end
