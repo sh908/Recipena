@@ -3,7 +3,7 @@
       <div class = "col-md-5 col-sm-10 mx-2 mx-sm-auto rounded px-0 my-5">
         <h3 class = "fas fa-address-card">プロフィール</h3>
         <div class = "form-body p-4">
-          <h3>名前<%= @user.name %> </h3>
+          <h3>名前&ensp;<%= @user.name %> </h3>
             <!--attachment_image_tag 保存先インスタンス名, :保存先カラム名, :サイズ（横幅,高さ）, 画像拡張子, 代替画像 -->
             <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no-image.jpeg", class:"mt-3 rounded-circle" %>
             <!--自分（ログインしているユーザ）のマイページが表示されたときのみ、編集ページへのリンクが表示される-->

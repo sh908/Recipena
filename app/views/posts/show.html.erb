@@ -14,9 +14,9 @@
                 <% end %>
               </p>
 
-              <span><i class="fas fa-user"></i> 名前 <%= @post.user.name %></span>
-              <span><i class="far fa-calendar-alt"></i> <%= @post.created_at.strftime('%Y/%m/%d') %></span>
-              <span><i class="fa fa-comment"></i> <%= link_to "#{@post.post_comments.count}", post_path(@post.id), class:"text-dark" %></span>
+              <span><i class="fas fa-user"></i> 名前&ensp;<%= @post.user.name %></span>
+              <span>&ensp;<i class="far fa-calendar-alt"></i><%= @post.created_at.strftime('%Y/%m/%d') %></span>
+              <span>&ensp;<i class="fa fa-comment"></i> <%= link_to "#{@post.post_comments.count}", post_path(@post.id), class:"text-dark" %></span>
               <!--もし、投稿者 == 現在ログインしているユーザ だったら-->
               <% if @post.user == current_user %>
                 <%= link_to "投稿削除", post_path(@post), method: :delete, class: "btn btn-outline-danger" %>

@@ -23,46 +23,39 @@
               <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
                     <li class = "nav-item">
-                      <i class="far fa-smile-beam">
-                        <%= link_to "投稿フォーム", new_post_path %>
-                      </i>
-                    </li>
+                      <i class="far fa-smile-beam"></i>
+                      <%= link_to "投稿フォーム", new_post_path %>
+                    </li>&ensp;
 
                     <li class = "nav-item">
-                      <i class="fas fa-utensils">
-                        <%= link_to "投稿一覧", posts_path %>
-                      </i>
-                    </li>
+                      <i class="fas fa-utensils"></i>
+                      <%= link_to "投稿一覧", posts_path %>
+                    </li>&ensp;
 
                     <li class = "nav-item">
-                      <i class="fas fa-users">
-                        <%= link_to "ユーザー一覧", users_path %>
-                      </i>
-                    </li>
+                      <i class="fas fa-users"></i>
+                      <%= link_to "ユーザー一覧", users_path %>
+                    </li>&ensp;
 
                     <li class = "nav-item">
-                      <i class="far fa-user">
-                        <%= link_to "マイページ", user_path(current_user.id) %>
-                      </i>
-                    </li>
+                      <i class="far fa-user"></i>
+                      <%= link_to "マイページ", user_path(current_user.id) %>
+                    </li>&ensp;
 
                     <li class = "nav-item">
-                      <i class="fas fa-sign-out-alt">
-                        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                      </i>
+                      <i class="fas fa-sign-out-alt"></i>
+                      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
                     </li>
                 <% else %>
                     <li class = "nav-item">
-                      <i class="fas fa-user-plus">
-                        <%= link_to "新規登録", new_user_registration_path %>
-                      </i>
-                    </li>
+                      <i class="fas fa-user-plus"></i>
+                      <%= link_to "新規登録", new_user_registration_path %>
+                    </li>&ensp;
 
                     <li class = "nav-item">
-                      <i class="fas fa-sign-in-alt">
-                        <%= link_to "ログイン", new_user_session_path %>
-                      </i>
-                    </li>
+                      <i class="fas fa-sign-in-alt"></i>
+                      <%= link_to "ログイン", new_user_session_path %>
+                    </li>&ensp;
                 <% end %>
               </ul>
             </div>
