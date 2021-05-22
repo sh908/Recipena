@@ -14,7 +14,9 @@
             <%= render "users/info", user: @user %>
 
             <br/>
-            <p>退会の方は<%= link_to "こちら", users_withdraw_path %></p>
+            <% if @user.id == current_user.id %>
+             <p>退会の方は<%= link_to "こちら", users_withdraw_path %></p>
+            <% end %>
         </div>
       </div>
     </div>
