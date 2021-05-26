@@ -41,8 +41,3 @@ https://docs.google.com/spreadsheets/d/1CL8XIuR8lAE9xFFccB-JM4T20z6CNTz8YDIduBcq
 ### 作者
  檜垣成冶
 
-## 使用方法
-ログイン画面からメールアドレスをa@a,
-パスワードをaaaaaa(6桁),
-入力していただくと予めつくったユーザーアカウントにログインが出来ます。
-見ていただければ幸いです。よろしくお願い致します。
