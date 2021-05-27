@@ -1,7 +1,7 @@
   <p>コメント件数:<%= post.post_comments.count %></p>
 　<% post.post_comments.each do |post_comment| %>
     <tr>
-      <th><%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no-image.jpeg" %></th>
+      <th><%= attachment_image_tag post_comment.user, :profile_image, :fill, 50, 50, fallback: "no-image.jpeg", class:"mt-3 rounded-circle" %></th>
       <td><i class="far fa-user"></i>名前&ensp;<%= post_comment.user.name %></td>
       <td><i class="far fa-calendar-alt"></i><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
     </tr>
