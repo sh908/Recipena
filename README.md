@@ -38,6 +38,10 @@ https://docs.google.com/spreadsheets/d/1CL8XIuR8lAE9xFFccB-JM4T20z6CNTz8YDIduBcq
 - JSライブラリ：jQuery
 - IDE：AWS Cloud9
 
+###使用素材
+- https://o-dan.net/ja
+- https://fontawesome.com
+
 ### 作者
  檜垣成冶
 
