@@ -40,6 +40,9 @@
                 <i class="far fa-clipboard"></i>
                 説明：<%= post.description %>
               </span>
+              </br>
+              <span class="sentiment-score">本文の感情分析スコア[<%= post.score %>]</span>
+
 
               <span>
                 <% if post.user == current_user %>
