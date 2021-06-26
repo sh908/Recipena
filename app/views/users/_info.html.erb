@@ -1,12 +1,14 @@
   <h4>
-    <tr>
-      <th><i class="far fa-user-circle">フォロー</i></th>
-      <th><%= link_to user.followings.count, user_followings_path(user) %></th>
-    </tr>
-    <tr>
-      <th><i class="fas fa-user-circle">フォロワー</i></th>
-      <th><%= link_to user.followers.count, user_followers_path(user) %></th>
-    </tr>
+    <table>
+      <tr>
+        <th><i class="far fa-user-circle">フォロー</i></th>
+        <th><%= link_to user.followings.count, user_followings_path(user) %></th>
+      </tr>
+      <tr>
+        <th><i class="fas fa-user-circle">フォロワー</i></th>
+        <th><%= link_to user.followers.count, user_followers_path(user) %></th>
+      </tr>
+    </table>
   </h4>
 
   <div class='row'>
